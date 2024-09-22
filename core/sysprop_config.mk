@@ -279,6 +279,10 @@ ADDITIONAL_SYSTEM_PROPERTIES += ro.force.debuggable=0
 config_enable_uffd_gc := \
   $(firstword $(OVERRIDE_ENABLE_UFFD_GC) $(PRODUCT_ENABLE_UFFD_GC) default)
 
+# ------------------------------------------------------------
+# Include vendor specific additions to build properties
+-include vendor/fortune/build/core/main.mk
+
 # This is a temporary system property that controls the ART module. The plan is
 # to remove it by Aug 2025, at which time Mainline updates of the ART module
 # will ignore it as well.
